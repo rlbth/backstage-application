@@ -1,0 +1,15 @@
+version: '3'
+services:
+  backstage:
+    image: backstage
+    ports:
+      - "7007:7007"
+    environment:
+      POSTGRES_HOST: "backstage-postgres-test.cqfktapldjoi.us-east-1.rds.amazonaws.com"
+      POSTGRES_PORT: "5432"
+      POSTGRES_USER: "scott"
+      POSTGRES_PASSWORD: "farmville"
+      AUTH_GITHUB_CLIENT_ID: "Iv1.a598e4cc5521d01a"
+      AUTH_GITHUB_CLIENT_SECRET: "1087a434161d7e7e388ab3814d628b0776e4d7c3"
+    stdin_open: true
+    tty: false
