@@ -5,11 +5,23 @@ services:
     ports:
       - "7007:7007"
     environment:
-      POSTGRES_HOST: "backstage-postgres-test.cqfktapldjoi.us-east-1.rds.amazonaws.com"
+      POSTGRES_HOST: "post-back"
       POSTGRES_PORT: "5432"
-      POSTGRES_USER: "scott"
-      POSTGRES_PASSWORD: "farmville"
-      AUTH_GITHUB_CLIENT_ID: "Iv1.a598e4cc5521d01a"
-      AUTH_GITHUB_CLIENT_SECRET: "1087a434161d7e7e388ab3814d628b0776e4d7c3"
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      AUTH_GITHUB_CLIENT_ID: ${AUTH_GITHUB_CLIENT_ID}
+      AUTH_GITHUB_CLIENT_SECRET: ${AUTH_GITHUB_CLIENT_SECRET}
     stdin_open: true
     tty: false
+    depends_on:
+      - post-back
+
+  post-back:
+    image: postgres
+    container_name: post-back
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    restart: always
