@@ -15,9 +15,9 @@ import { orgPlugin } from '@backstage/plugin-org';
 import { SearchPage } from '@backstage/plugin-search';
 import { TechRadarPage } from '@backstage/plugin-tech-radar';
 import {
-  TechDocsIndexPage,
-  techdocsPlugin,
-  TechDocsReaderPage,
+    DefaultTechDocsHome,
+    TechDocsIndexPage, techdocsPlugin,
+    TechDocsReaderPage,
 } from '@backstage/plugin-techdocs';
 import { TechDocsAddons } from '@backstage/plugin-techdocs-react';
 import { ReportIssue } from '@backstage/plugin-techdocs-module-addons-contrib';
@@ -80,15 +80,13 @@ const routes = (
     >
       {entityPage}
     </Route>
-    <Route path="/docs" element={<TechDocsIndexPage />} />
-    <Route
-      path="/docs/:namespace/:kind/:name/*"
-      element={<TechDocsReaderPage />}
-    >
-      <TechDocsAddons>
-        <ReportIssue />
-      </TechDocsAddons>
-    </Route>
+      <Route path="/docs" element={<TechDocsIndexPage />}>
+          <DefaultTechDocsHome />
+      </Route>
+      <Route
+          path="/docs/:namespace/:kind/:name/*"
+          element={<TechDocsReaderPage />}
+      />
     <Route path="/create" element={<ScaffolderPage />} />
     <Route path="/api-docs" element={<ApiExplorerPage />} />
     <Route
@@ -103,6 +101,9 @@ const routes = (
         </RequirePermission>
       }
     />
+      <TechDocsAddons>
+          <ReportIssue />
+      </TechDocsAddons>
     <Route path="/search" element={<SearchPage />}>
       {searchPage}
     </Route>

@@ -3568,6 +3568,38 @@
     react-helmet "6.1.0"
     react-use "^17.2.4"
 
+"@backstage/plugin-techdocs@^1.9.2":
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/@backstage/plugin-techdocs/-/plugin-techdocs-1.9.2.tgz#dfa972bc5b83f1de5ec5c28f578d3e51a0cd2aa3"
+  integrity sha512-AwiHZ+Kn0XVUPyyRTMkBLxGdvLDV94iWKYXqfZeFoRCTSNE33iNqoHRYwCh0guTMsoMWN9tVMMlmXm8OmnEPWA==
+  dependencies:
+    "@backstage/catalog-model" "^1.4.3"
+    "@backstage/config" "^1.1.1"
+    "@backstage/core-compat-api" "^0.1.0"
+    "@backstage/core-components" "^0.13.9"
+    "@backstage/core-plugin-api" "^1.8.1"
+    "@backstage/errors" "^1.2.3"
+    "@backstage/frontend-plugin-api" "^0.4.0"
+    "@backstage/integration" "^1.8.0"
+    "@backstage/integration-react" "^1.1.22"
+    "@backstage/plugin-catalog-react" "^1.9.2"
+    "@backstage/plugin-search-common" "^1.2.9"
+    "@backstage/plugin-search-react" "^1.7.4"
+    "@backstage/plugin-techdocs-react" "^1.1.14"
+    "@backstage/theme" "^0.5.0"
+    "@material-ui/core" "^4.12.2"
+    "@material-ui/icons" "^4.9.1"
+    "@material-ui/lab" "4.0.0-alpha.61"
+    "@material-ui/styles" "^4.10.0"
+    "@types/react" "^16.13.1 || ^17.0.0"
+    dompurify "^2.2.9"
+    event-source-polyfill "1.0.25"
+    git-url-parse "^13.0.0"
+    jss "~10.10.0"
+    lodash "^4.17.21"
+    react-helmet "6.1.0"
+    react-use "^17.2.4"
+
 "@backstage/plugin-user-settings@^0.7.14":
   version "0.7.14"
   resolved "https://registry.yarnpkg.com/@backstage/plugin-user-settings/-/plugin-user-settings-0.7.14.tgz#03a44baa6df51f0d5bc43bc7aed26219f5a535a5"
@@ -5076,7 +5108,7 @@
     react-transition-group "^4.0.0"
     rifm "^0.7.0"
 
-"@material-ui/styles@^4.11.0", "@material-ui/styles@^4.11.4", "@material-ui/styles@^4.11.5":
+"@material-ui/styles@^4.10.0", "@material-ui/styles@^4.11.0", "@material-ui/styles@^4.11.4", "@material-ui/styles@^4.11.5":
   version "4.11.5"
   resolved "https://registry.yarnpkg.com/@material-ui/styles/-/styles-4.11.5.tgz#19f84457df3aafd956ac863dbe156b1d88e2bbfb"
   integrity sha512-o/41ot5JJiUsIETME9wVLAJrmIWL3j0R0Bj2kCOLbSfqEkKf0fmaPt+5vtblUh5eXr2S+J/8J3DaCb10+CzPGA==
@@ -11594,7 +11626,7 @@ dompurify@=3.0.6:
   resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-3.0.6.tgz#925ebd576d54a9531b5d76f0a5bef32548351dae"
   integrity sha512-ilkD8YEnnGh1zJ240uJsW7AzE+2qpbOUYjacomn3AvJ6J4JhKGSZ2nh4wUIXPZrEPppaCLx5jFe8T89Rk8tQ7w==
 
-dompurify@^2.2.7:
+dompurify@^2.2.7, dompurify@^2.2.9:
   version "2.4.7"
   resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.4.7.tgz#277adeb40a2c84be2d42a8bcd45f582bfa4d0cfc"
   integrity sha512-kxxKlPEDa6Nc5WJi+qRgPbOAbgTpSULL+vI3NUXsZMlkJxTqYI9wg5ZTay2sFrdZRWHPWNi+EdAhcJf81WtoMQ==
@@ -12352,6 +12384,11 @@ etag@~1.8.1:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
   integrity sha512-aIL5Fx7mawVa300al2BnEE4iNvo1qETxLrPI/o05L7z6go7fCw1J6EQmbK4FmJ2AS7kgVF/KEZWufBfdClMcPg==
+
+event-source-polyfill@1.0.25:
+  version "1.0.25"
+  resolved "https://registry.yarnpkg.com/event-source-polyfill/-/event-source-polyfill-1.0.25.tgz#d8bb7f99cb6f8119c2baf086d9f6ee0514b6d9c8"
+  integrity sha512-hQxu6sN1Eq4JjoI7ITdQeGGUN193A2ra83qC0Ltm9I2UJVAten3OFVN6k5RX4YWeCS0BoC8xg/5czOCIHVosQg==
 
 event-source-polyfill@^1.0.31:
   version "1.0.31"
