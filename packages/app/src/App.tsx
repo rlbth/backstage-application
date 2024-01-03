@@ -2,13 +2,13 @@ import React from 'react';
 import { Navigate, Route } from 'react-router-dom';
 import { apiDocsPlugin, ApiExplorerPage } from '@backstage/plugin-api-docs';
 import {
-  CatalogEntityPage,
-  CatalogIndexPage,
-  catalogPlugin,
+    CatalogEntityPage,
+    CatalogIndexPage,
+    catalogPlugin,
 } from '@backstage/plugin-catalog';
 import {
-  CatalogImportPage,
-  catalogImportPlugin,
+    CatalogImportPage,
+    catalogImportPlugin,
 } from '@backstage/plugin-catalog-import';
 import { ScaffolderPage, scaffolderPlugin } from '@backstage/plugin-scaffolder';
 import { orgPlugin } from '@backstage/plugin-org';
@@ -36,74 +36,74 @@ import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/
 
 
 const app = createApp({
-  apis,
-  bindRoutes({ bind }) {
-    bind(catalogPlugin.externalRoutes, {
-      createComponent: scaffolderPlugin.routes.root,
-      viewTechDoc: techdocsPlugin.routes.docRoot,
-      createFromTemplate: scaffolderPlugin.routes.selectedTemplate,
-    });
-    bind(apiDocsPlugin.externalRoutes, {
-      registerApi: catalogImportPlugin.routes.importPage,
-    });
-    bind(scaffolderPlugin.externalRoutes, {
-      registerComponent: catalogImportPlugin.routes.importPage,
-      viewTechDoc: techdocsPlugin.routes.docRoot,
-    });
-    bind(orgPlugin.externalRoutes, {
-      catalogIndex: catalogPlugin.routes.catalogIndex,
-    });
-  },
+    apis,
+    bindRoutes({ bind }) {
+        bind(catalogPlugin.externalRoutes, {
+            createComponent: scaffolderPlugin.routes.root,
+            viewTechDoc: techdocsPlugin.routes.docRoot,
+            createFromTemplate: scaffolderPlugin.routes.selectedTemplate,
+        });
+        bind(apiDocsPlugin.externalRoutes, {
+            registerApi: catalogImportPlugin.routes.importPage,
+        });
+        bind(scaffolderPlugin.externalRoutes, {
+            registerComponent: catalogImportPlugin.routes.importPage,
+            viewTechDoc: techdocsPlugin.routes.docRoot,
+        });
+        bind(orgPlugin.externalRoutes, {
+            catalogIndex: catalogPlugin.routes.catalogIndex,
+        });
+    },
 });
 
 const routes = (
-  <FlatRoutes>
-    <Route path="/" element={<Navigate to="catalog" />} />
-    <Route path="/catalog" element={<CatalogIndexPage />} />
-    <Route
-      path="/catalog/:namespace/:kind/:name"
-      element={<CatalogEntityPage />}
-    >
-      {entityPage}
-    </Route>
-      <Route path="/docs" element={<TechDocsIndexPage />}>
-          <DefaultTechDocsHome />
-      </Route>
-      <Route
-          path="/docs/:namespace/:kind/:name/*"
-          element={<TechDocsReaderPage />}
-      />
-    <Route path="/create" element={<ScaffolderPage />} />
-    <Route path="/api-docs" element={<ApiExplorerPage />} />
-    <Route
-      path="/tech-radar"
-      element={<TechRadarPage width={1500} height={800} />}
-    />
-    <Route
-      path="/catalog-import"
-      element={
-        <RequirePermission permission={catalogEntityCreatePermission}>
-          <CatalogImportPage />
-        </RequirePermission>
-      }
-    />
-      <TechDocsAddons>
-          <ReportIssue />
-      </TechDocsAddons>
-    <Route path="/search" element={<SearchPage />}>
-      {searchPage}
-    </Route>
-    <Route path="/settings" element={<UserSettingsPage />} />
-    <Route path="/catalog-graph" element={<CatalogGraphPage />} />
-  </FlatRoutes>
+    <FlatRoutes>
+        <Route path="/" element={<Navigate to="catalog" />} />
+        <Route path="/catalog" element={<CatalogIndexPage />} />
+        <Route
+            path="/catalog/:namespace/:kind/:name"
+            element={<CatalogEntityPage />}
+        >
+            {entityPage}
+        </Route>
+        <Route path="/docs" element={<TechDocsIndexPage />}>
+            <DefaultTechDocsHome />
+        </Route>
+        <Route
+            path="/docs/:namespace/:kind/:name/*"
+            element={<TechDocsReaderPage />}
+        />
+        <Route path="/create" element={<ScaffolderPage />} />
+        <Route path="/api-docs" element={<ApiExplorerPage />} />
+        <Route
+            path="/tech-radar"
+            element={<TechRadarPage width={1500} height={800} />}
+        />
+        <Route
+            path="/catalog-import"
+            element={
+                <RequirePermission permission={catalogEntityCreatePermission}>
+                    <CatalogImportPage />
+                </RequirePermission>
+            }
+        />
+        <TechDocsAddons>
+            <ReportIssue />
+        </TechDocsAddons>
+        <Route path="/search" element={<SearchPage />}>
+            {searchPage}
+        </Route>
+        <Route path="/settings" element={<UserSettingsPage />} />
+        <Route path="/catalog-graph" element={<CatalogGraphPage />} />
+    </FlatRoutes>
 );
 
 export default app.createRoot(
-  <>
-    <AlertDisplay />
-    <OAuthRequestDialog />
-    <AppRouter>
-      <Root>{routes}</Root>
-    </AppRouter>
-  </>,
+    <>
+        <AlertDisplay />
+        <OAuthRequestDialog />
+        <AppRouter>
+            <Root>{routes}</Root>
+        </AppRouter>
+    </>,
 );
