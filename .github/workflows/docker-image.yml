@@ -24,11 +24,11 @@ jobs:
       run: npm install --global yarn
 
 
-    - name: Install dependencies
-      run: yarn install --frozen-lockfile
-
     - name: Install
       run: yarn add --cwd packages/backend @backstage/plugin-techdocs-backend
+      
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
 
     - name: output type definitions
       run: yarn tsc
