@@ -1,9 +1,9 @@
 app:
-  title: Scania Backstage
-  baseUrl: http://backstage
+  title: Scaffolded Backstage App
+  baseUrl: http://localhost:3000
 
 organization:
-  name: Scania
+  name: My Company
 
 backend:
   # Used for enabling authentication, secret is shared by all backend plugins
@@ -22,7 +22,7 @@ backend:
     # Content-Security-Policy directives follow the Helmet format: https://helmetjs.github.io/#reference
     # Default Helmet Content-Security-Policy values can be removed by setting the key to false
   cors:
-    origin: http://backstage:3000
+    origin: http://localhost:3000
     methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
     credentials: true
   # This is for local development only, it is not recommended to use this in production
@@ -34,7 +34,6 @@ backend:
       port: ${POSTGRES_PORT}
       user: ${POSTGRES_USER}
       password: ${POSTGRES_PASSWORD}
-      
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
 
 integrations:
@@ -74,7 +73,6 @@ auth:
       development:
         clientId: ${AUTH_GITHUB_CLIENT_ID}
         clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
-        callbackUrl: 'http://localhost/api/auth/github/handler/frame'
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
