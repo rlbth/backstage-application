@@ -1,0 +1,27 @@
+version: '3'
+services:
+  backstage:
+    image: backstage
+    ports:
+      - "7007:7007"
+    environment:
+      POSTGRES_HOST: "post-back"
+      POSTGRES_PORT: "5432"
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      AUTH_GITHUB_CLIENT_ID: ${AUTH_GITHUB_CLIENT_ID}
+      AUTH_GITHUB_CLIENT_SECRET: ${AUTH_GITHUB_CLIENT_SECRET}
+    stdin_open: true
+    tty: false
+    depends_on:
+      - post-back
+
+  post-back:
+    image: postgres
+    container_name: post-back
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    restart: always
