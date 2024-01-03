@@ -12,11 +12,11 @@ backend:
   # auth:
   #   keys:
   #     - secret: ${BACKEND_SECRET}
-  baseUrl: http://localhost
+  baseUrl: http://backstage:7007
   listen:
     port: 7007
     # Uncomment the following host directive to bind to specific interfaces
-    host: backstage
+    # host: backstage
   csp:
     connect-src: ["'self'", 'http:', 'https:']
     # Content-Security-Policy directives follow the Helmet format: https://helmetjs.github.io/#reference
