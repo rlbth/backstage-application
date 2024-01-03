@@ -1,9 +1,9 @@
 app:
-  title: Scaffolded Backstage App
-  baseUrl: http://localhost:3000
+  title: Scania Backstage
+  baseUrl: http://backstage
 
 organization:
-  name: My Company
+  name: Scania
 
 backend:
   # Used for enabling authentication, secret is shared by all backend plugins
