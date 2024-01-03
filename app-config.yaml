@@ -1,6 +1,6 @@
 app:
   title: Scania Backstage
-  baseUrl: http://backstage
+  baseUrl: http://localhost:3000
 
 organization:
   name: Scania
