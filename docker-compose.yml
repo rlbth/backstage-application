@@ -1,7 +1,7 @@
 version: '3'
 services:
   backstage:
-    image: lakran/backstage
+    image: lakran/csbackstage
     ports:
       - "7007:7007"
     environment:
